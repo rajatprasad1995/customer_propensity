@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+  <h1 class="display-4">Enter required details to predict whether customer will accept the new credit card</h1>
+  <form method="post">
+  {{form.hidden_tag()}}
+  {{form.mob_bank.label}}{{form.mob_bank}}
+  <br>
+  {{form.atm.label}}{{form.atm}}
+  <br>
+  {{form.odrft_lim.label}}{{form.odrft_lim}}
+  <br>
+  <br>
+  {{form.age.label}}{{form.age}}
+  <br>
+  {{form.cus_leng.label}}{{form.cus_leng}}
+ 
+  <br>
+  {{form.submit(class="btn btn-dark")}}
+  
+</form>
+
+{% for mess in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <button type="button" class="fade close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{mess}}
+</div>
+{% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
